@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JavaScript Functions</title>
+</head>
+<body>
+  <h1>JavaScript Functions</h1>
+  <p>Enter a string and a number and click the buttons to see the output.</p>
+  <input type="text" id="string" placeholder="Enter a string">
+  <button onclick="findLeftMostVowel()">Find left-most vowel</button>
+  <p id="vowel"></p>
+  <input type="number" id="number" placeholder="Enter a number">
+  <button onclick="reverseDigits()">Reverse digits</button>
+  <p id="reverse"></p>
+  <script>
+    // Define a function to find the position of the left-most vowel in a string
+    function findLeftMostVowel() {
+      // Get the input string from the element with id "string"
+      var str = document.getElementById("string").value;
+
+      // Convert the string to lowercase
+      str = str.toLowerCase();
+
+      // Define an array of vowels
+      var vowels = ["a", "e", "i", "o", "u"];
+
+      // Loop through the characters of the string
+      for (var i = 0; i < str.length; i++) {
+        // If the current character is a vowel, return its position and exit the loop
+        if (vowels.includes(str[i])) {
+          // Get the element with id "vowel" and set its text content to the position of the vowel
+          document.getElementById("vowel").textContent = "The position of the left-most vowel is " + (i + 1);
+          return;
+        }
+      }
+
+      // If no vowel is found, get the element with id "vowel" and set its text content to a message
+      document.getElementById("vowel").textContent = "No vowel found in the string";
+    }
+
+    // Define a function to reverse the digits of a number
+    function reverseDigits() {
+      // Get the input number from the element with id "number"
+      var num = document.getElementById("number").value;
+
+      // Convert the number to a string
+      var str = num.toString();
+
+      // Define an empty string to store the reversed digits
+      var rev = "";
+
+      // Loop through the characters of the string from right to left
+      for (var i = str.length - 1; i >= 0; i--) {
+        // Append the current character to the reversed string
+        rev += str[i];
+      }
+
+      // Convert the reversed string back to a number
+      var result = Number(rev);
+
+      // Get the element with id "reverse" and set its text content to the reversed number
+      document.getElementById("reverse").textContent = "The number with its digits in reverse order is " + result;
+    }
+  </script>
+</body>
+</html>
